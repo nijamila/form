@@ -22,14 +22,21 @@ from fourthapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name = 'index'),
+    # path('', views.index, name = 'index'),
+    path('', CarByType.as_view(), name = 'index'),
     path('car/<int:pk>/', car, name = 'car'),
     path('cartype/<int:pk>/', cartype, name = 'cartype'),
-    path('add_country/', add_country, name='add_country'),
+    # path('add_country/', add_country, name='add_country'),
+    path('add_country/', CreateCountry.as_view(), name='add_country'),
     path('test', test),
     path('add_car_model/', add_car_model, name='add_car_model'),
-    path('add_car/', add_car, name='add_car'),
-    path('update_car/<int:pk>/', update_car, name = 'update_car'),
-    path('detail_car/<int:pk>/', detail_car, name = 'detail_car'),
-    path('del_car/<int:pk>/', del_car, name = 'del_car'),
+    # path('add_car/<int:pk>/', add_car, name='add_car'),
+    path('add_car/', CreateCar.as_view(), name='add_car'),
+    # path('update_car/<int:pk>/', update_car, name = 'update_car'),
+    path('update_car/<int:pk>/', CarUpdate.as_view(), name = 'update_car'),
+    # path('detail_car/<int:pk>/', detail_car, name = 'detail_car'),
+    path('detail_car/<int:pk>/', ViewCars.as_view(), name = 'detail_car'),
+    # path('del_car/<int:pk>/', del_car, name = 'del_car'),
+    path('del_car/<int:pk>/', DeleteCar.as_view(), name = 'del_car')
+
 ]

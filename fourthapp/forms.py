@@ -10,7 +10,6 @@ class CartForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'})
         }
 
-
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car

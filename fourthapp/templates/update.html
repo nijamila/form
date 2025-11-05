@@ -6,7 +6,7 @@
 </head>
 <body>
 <form action = "{% url 'update_car' car.pk %}" method="post" enctype="multipart/form-data">
-    { % csrf_token % }
+    {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary btn-block">Add Car</button>
 </form>
